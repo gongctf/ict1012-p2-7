@@ -1,0 +1,3 @@
+FROM docker.io/library/nginx:1.28.2-alpine-slim@sha256:7e034cabf67d95246a996a3b92ad1c49c20d81526c9d7ba982aead057a0606e8
+COPY ./html/ /usr/share/nginx/html/
+COPY ./config/ /etc/nginx/
