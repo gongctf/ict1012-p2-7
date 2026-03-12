@@ -4,6 +4,7 @@ config terminal
 hostname SW1
 
 <%+ ./partials/common.esh %>
+<% CommonConfigAll 98 $SW1_Lo1_SUBNET_ADDRESS %>
 <% CommonConfigSW %>
 
 

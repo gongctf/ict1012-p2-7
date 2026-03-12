@@ -4,6 +4,7 @@ config terminal
 hostname SW2
 
 <%+ ./partials/common.esh %>
+<% CommonConfigAll 98 $SW2_Lo1_SUBNET_ADDRESS %>
 <% CommonConfigSW %>
 
 vlan <%= $VLAN_SalesMarketing_ID %>
