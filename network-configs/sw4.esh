@@ -36,12 +36,38 @@ interface range g1/0/8-22
   switchport mode access
   switchport access vlan <%= $VLAN_MeetingRooms_ID %>
 
-! Trunking configs
-interface range g1/0/23-24
-  spanning-tree bpduguard disable
+! Trunking configs & EtherChannel LACP
+interface g1/0/21
+  switchport mode trunk
+  channel-group 7 mode active
+  no shutdown
+
+interface g1/0/23
+  switchport mode trunk
+  channel-group 7 mode active
+  no shutdown
+
+interface port-channel 7
+  spanning-tree bpduguard disable  
   switchport mode trunk
   switchport nonegotiate
-  
+
+
+interface range g1/0/22
+  switchport mode trunk
+  channel-group 8 mode active
+  no shutdown
+
+interface range g1/0/24
+  switchport mode trunk
+  channel-group 8 mode active
+  no shutdown
+
+interface port-channel 8
+  spanning-tree bpduguard disable  
+  switchport mode trunk
+  switchport nonegotiate 
+
 interface range g1/1/1-4
   shutdown
   
