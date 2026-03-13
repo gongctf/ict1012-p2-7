@@ -14,12 +14,53 @@ vlan <%= $VLAN_CSW1_R2_ID %>
 exit
 
 ! === Trunk Ports to Access Switches ===
-! g1/0/1=SW1, g1/0/2=SW2, g1/0/3=SW3, g1/0/4=SW4
-interface range g1/0/1-4
+interface range g1/0/1-8
  switchport mode trunk
- switchport nonegotiate
  no shutdown
 exit
+
+interface g1/0/1
+ channel-group 1 mode active
+
+interface g1/0/5
+ channel-group 1 mode active
+
+interface port-channel 1
+ switchport mode trunk
+ switchport nonegotiate
+
+
+interface g1/0/2
+ channel-group 3 mode active
+
+interface g1/0/6
+ channel-group 3 mode active
+
+interface port-channel 3
+ switchport mode trunk
+ switchport nonegotiate
+
+
+interface g1/0/3
+ channel-group 5 mode active
+
+interface g1/0/7
+ channel-group 5 mode active
+
+interface port-channel 5
+ switchport mode trunk
+ switchport nonegotiate
+
+
+interface g1/0/4
+ channel-group 7 mode active
+
+interface g1/0/8
+ channel-group 7 mode active
+
+interface port-channel 7
+ switchport mode trunk
+ switchport nonegotiate
 
 ! === Trunk to CSW2 (inter-core link) ===
 interface g1/0/22
